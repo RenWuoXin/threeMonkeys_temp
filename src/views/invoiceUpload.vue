@@ -1,6 +1,7 @@
 <script setup>
 import { reactive, ref } from 'vue';
 import invoice from '../components/invoice.vue';
+import invoiceNumber from '../components/invoiceNumber.vue';
 
 </script>
 
@@ -9,7 +10,7 @@ import invoice from '../components/invoice.vue';
         <template #activityContent>
 
             <div class="carrierPage">
-                <form name="form"> 
+                <form name="form">
                     <p class="text--white">一張發票限登錄一次，請確實拍照且填妥發票序號，以利後台審核</p>
                     <label class="uploadImg" for="uploadImg">
 
@@ -29,34 +30,30 @@ import invoice from '../components/invoice.vue';
                     <span class="text--brown" style="font-size: 30px;margin-left: 40px;">請輸入發票序號</span>
                     <span class="text--brown" style="font-size: 20px;">(*必填)</span>
 
-                    <div class="div__input">
-                        <div class="input--Combine" style="width: 88px;height: 82px;">
-                            <input class="input--Each" type="text" maxlength="1">
-                            <input class="input--Each" type="text" maxlength="1">
-                        </div>
-                        <span style="font-size: 50px;margin: 0 10px;">-</span>
-                        <div class="input--Combine" style="width: 351px;height: 82px;">
-                            <input class="input--Each" type="tel" maxlength="1">
-                            <input class="input--Each" type="tel" maxlength="1">
-                            <input class="input--Each" type="tel" maxlength="1">
-                            <input class="input--Each" type="tel" maxlength="1">
-                            <input class="input--Each" type="tel" maxlength="1">
-                            <input class="input--Each" type="tel" maxlength="1">
-                            <input class="input--Each" type="tel" maxlength="1">
-                            <input class="input--Each" type="tel" maxlength="1">
-                        </div>
-                    </div>
+                    <invoiceNumber></invoiceNumber>
 
                     <p class="text--white">*請填上「英文兩碼」、「數字八碼」</p>
                     <img class="line" src="../img/carrier/Line.png" alt="">
-                    <label for="submit">
+                    <!-- <label for="submit">
                         <button style="letter-spacing: 3px;" class="btn btn--primary">
                             <img class="btn--icon" src="../assets/img/Arrow_right.png" alt="">
                             確認送出
                         </button>
-                    </label>
-                    <button class="btn btn--scecondary">回上一頁</button>
-                    <button class="btn btn--scecondary">發票登錄說明</button>
+                    </label> -->
+                    <!-- <button class="btn btn--scecondary">回上一頁</button> -->
+                    <!-- <button class="btn btn--scecondary">發票登錄說明</button> -->
+                    <router-link to="" style="text-decoration: none;">
+                        <label for="submit">
+                            <button style="letter-spacing: 3px;" class="btn btn--primary">
+                                <img class="btn--icon" src="../assets/img/Arrow_right.png" alt="">
+                                確認送出
+                            </button>
+                        </label>
+                    </router-link>
+                    <router-link to="" style="text-decoration: none;"><button
+                            class="btn btn--scecondary">回上一頁</button></router-link>
+                    <router-link to="" style="text-decoration: none;"><button
+                            class="btn btn--scecondary">發票登錄說明</button></router-link>
                 </form>
             </div>
 
@@ -203,6 +200,7 @@ a {
     background-color: transparent;
     // padding: 0 20px;
 }
+
 .input--Each:focus {
     outline: none;
     // outline-offset: -3px;
@@ -281,5 +279,4 @@ a {
     position: absolute;
     top: 0;
     left: 0;
-}
-</style>
+}</style>
