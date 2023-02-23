@@ -54,7 +54,6 @@ onMounted(() => {
                                     <input class="input--Each" type="tel" maxlength="1"> -->
 
         </div>
-        <p></p>
     </div>
 </template>
 
