@@ -6,17 +6,45 @@ import invoice from '../components/invoice.vue';
 import activityText from '../components/activityText.vue';
 import noticeText from '../components/noticeText.vue';
 
-const $router = useRouter()
+const $router = useRouter();
 
 const state = reactive({
-    tab: 'activityText',
+    tab: '',
     isAgree: false,
 });
+
+// const isRead = ref(false);
+// const isShowReadButton = ref(false);
+// const handleIntersection = (entries, observer) => {
+//     entries.forEach((entry) => {
+//         if (entry.isIntersecting) {
+//             switch (entry.target.id) {
+//                 case 'activityText':
+//                     isRead.value = true;
+//                     break;
+//                 case 'noticeText':
+//                     isRead.value = true;
+//                     break;
+//             }
+//             observer.unobserve(entry.target);
+//         }
+//     });
+// };
+
+// const observer = new IntersectionObserver(handleIntersection, { threshold: 1 });
+// onMounted(() => {
+//     observer.observe($refs.activityText.$el);
+//     observer.observe($refs.noticeText.$el);
+// });
 
 const goBack = () => {
     $router.go(-1)
 }
 
+// onMounted(() => {
+//     const { tab } = $router.params;
+//     state.tab = tab || 'activityText';
+// });
 </script>
 
 <template>
@@ -25,10 +53,12 @@ const goBack = () => {
             <div class="carrierPage">
                 <div class="div--text">
                     <div class="text--title">
-                        <span class="title--notice" :class="{ active: state.tab === 'activityText' }"
+                        <span class="title--notice" 
+                              :class="{ active: state.tab === 'activityText' }"
                             @click="state.tab = 'activityText'">
                             活動辦法</span>
-                        <span class="title--notice" :class="{ active: state.tab === 'noticeText' }"
+                        <span class="title--notice" 
+                              :class="{ active: state.tab === 'noticeText' }"
                             @click="state.tab = 'noticeText'">
                             注意事項</span>
                     </div>
@@ -42,10 +72,13 @@ const goBack = () => {
                     </div>
                 </div>
 
-
-
                 <router-link :to="{ name: 'home' }" style="text-decoration: none;"><button
                         class="btn btn--primary">回到主頁</button></router-link>
+
+                <router-link :to="{ name: 'home' }" style="text-decoration: none;"><button
+                        class="btn btn--primary">閱讀完了，進入首頁</button></router-link>
+
+
             </div>
         </template>
     </invoice>

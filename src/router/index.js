@@ -5,11 +5,12 @@ import Index from "../views/index.vue";
 // 父元件與子元件要放在同一個資料夾
 // import invoiceParent from "../views/invoiceParent.vue";
 import invoice from "../views/invoice.vue";
-import carrier from "../views/carrier.vue";
-import invoicelogin from "../views/invoicelogin.vue";
-import invoiceInput from "../views/invoiceInput.vue";
-import invoiceCamera from "../views/invoiceCamera.vue";
-import invoiceUpload from "../views/invoiceUpload.vue";
+import Carrier from "../views/carrier.vue";
+import Invoicelogin from "../views/invoicelogin.vue";
+import InvoiceInput from "../views/invoiceInput.vue";
+import InvoiceCamera from "../views/invoiceCamera.vue";
+import InvoiceUpload from "../views/invoiceUpload.vue";
+import Caution from "../views/caution.vue";
 
 const router = createRouter({
   history: createWebHistory(),
@@ -20,7 +21,7 @@ const router = createRouter({
     // { path: "/home", component: Home },
     {
       path: "/invoice",
-      component: invoice,
+      // component: invoice,
       children: [
         {
           // 如果希望 "/invoice" 也有頁面時的設定
@@ -32,30 +33,33 @@ const router = createRouter({
           // 注意，嵌套時 path 不帶 "/"
           path: "carrier",
           name:'invoice-carrier',
-          component: carrier,
+          component: Carrier,
         },
         {
           path: "login",
           name:'invoice-login',
-          component: invoicelogin,
+          component:Invoicelogin,
         },
         {
           path: "input",
           name:'invoice-input',
-          component: invoiceInput,
+          component: InvoiceInput,
         },
         {
           path: "camera",
           name:'invoice-camera',
-          component: invoiceCamera,
+          component: InvoiceCamera,
         },
         {
           path: "upload",
           name:'invoice-upload',
-          component: invoiceUpload,
+          component: InvoiceUpload,
         },
       ],
     },
+    { path: "/caution", 
+    name:'caution',
+    component: Caution },
   ],
 });
 

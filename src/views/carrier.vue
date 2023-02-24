@@ -1,7 +1,14 @@
 <script setup>
 import { reactive, ref } from 'vue';
+import { useRoute, useRouter } from 'vue-router'
+
 import invoice from '../components/invoice.vue';
 
+const router = useRouter()
+
+const goBack = () => {
+    router.go(-1)
+}
 
 const veriForm = reactive({
     carrierData: '',
@@ -56,15 +63,16 @@ const veriForm = reactive({
                     </div>
 
                     <!-- <img onclick="document.forms['form'].submit();" class="btn" src="../img/carrier/btn1-2-1.png" alt=""> -->
-                    <label for="submit">
-                        <button style="letter-spacing: 3px;" class="btn btn--primary">
-                            <img class="btn--icon" src="../assets/img/Arrow_right.png" alt="">
-                            確認送出
-                        </button>
-                    </label>
+                    <router-link :to="{ name: 'invoice-login' }" style="text-decoration: none;"> <label for="submit">
+                            <button style="letter-spacing: 3px;" class="btn btn--primary">
+                                <img class="btn--icon" src="../assets/img/Arrow_right.png" alt="">
+                                確認送出
+                            </button>
+                        </label></router-link>
+
                     <!-- <input id="submit" style="display: none;" type="submit" value=""> -->
 
-                    <button class="btn btn--scecondary">回上一頁</button>
+                    <button @click="goBack" class="btn btn--scecondary">回上一頁</button>
                     <button class="btn btn--scecondary">發票登錄說明</button>
                 </form>
             </div>

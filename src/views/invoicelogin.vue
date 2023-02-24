@@ -1,24 +1,34 @@
 <script setup>
 import { reactive, ref } from 'vue';
+import { useRoute, useRouter } from 'vue-router'
 import invoice from '../components/invoice.vue';
 
+const router = useRouter()
+
+const goBack = () => {
+    router.go(-1)
+}
 </script>
 
 <template>
     <invoice>
         <template #activityContent>
-            <button style="font-size: 28px;" class="btn btn--scecondary--big">
-                <img class="btn--icon" src="../img/carrier/scan.png" alt="">
-                開啟相機<br>
-                掃描發票上的QR CODE
-            </button>
+            <router-link :to="{ name: 'invoice-camera' }" style="text-decoration: none;"><button style="font-size: 28px;"
+                    class="btn btn--scecondary--big">
+                    <img class="btn--icon" src="../img/carrier/scan.png" alt="">
+                    開啟相機<br>
+                    掃描發票上的QR CODE
+                </button></router-link>
+
             <p class="declaration">相機掃描功能僅支援「Android 系統」「iPhone ios 15.0」或 以上版本系統使用。</p>
             <img class="img--seperator" src="../img/carrier/or.png" alt="">
-            <button style="font-size: 34px;" class="btn btn--scecondary--big">
-                <img class="btn--icon" src="../img/carrier/Order.png" alt="">
-                輸入紙本發票
-            </button>
-            <button class="btn btn--primary">
+            <router-link :to="{ name: 'invoice-input' }" style="text-decoration: none;"><button style="font-size: 34px;"
+                    class="btn btn--scecondary--big">
+                    <img class="btn--icon" src="../img/carrier/Order.png" alt="">
+                    輸入紙本發票
+                </button></router-link>
+
+            <button @click="goback" class="btn btn--primary">
                 回上一頁
             </button>
             <button class="btn btn--primary">
@@ -184,6 +194,6 @@ input[type=checkbox] {
     width: 529px;
     height: 54px;
     display: block;
-    margin:15px auto;
+    margin: 15px auto;
 }
 </style>

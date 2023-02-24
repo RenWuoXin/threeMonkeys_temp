@@ -1,7 +1,12 @@
 <script setup>
 import { reactive } from 'vue';
-import { useRouter } from 'vue-router';
+import { useRoute, useRouter } from 'vue-router'
 
+const router = useRouter()
+
+const goBack = () => {
+    router.go(-1)
+}
 
 </script>
 
@@ -10,22 +15,26 @@ import { useRouter } from 'vue-router';
         <!-- <div class="rectangle"></div> -->
         <img class="bgImg" src="../img/home/homebg.png" alt="">
         <!-- <img class="bgRec" src="../img/invoice/Rectangle 1.png" alt=""> -->
-        <img class="logoLeft" src="../img/home/LOGO1.png" alt="">
+        <router-link :to="{name:'home'}" style="text-decoration: none;"><img class="logoLeft" src="../img/home/LOGO1.png" alt=""></router-link>
+        
 
 
         <div class="content">
             <div class="contentTop">
                 <img class="title" src="../img/home/activeity.png" alt="">
-                <img class="brandName" src="../img/home/LOGO.png" alt="">
-            </div>
+            <img class="brandName" src="../img/home/LOGO.png" alt="">
+        </div>
             <div class="contentBottom">
                 <img class="sendPoint" src="../img/home/送LINE POINT.svg" alt="">
-                <button class="btn btn--primary">立即登錄發票</button>
-                <button class="btn btn--scecondary">活動辦法／注意事項</button>
-                <button class="btn btn--scecondary">活動店家資訊</button>
-                <!-- <img class="btn" src="../img/home/btn1.png" alt=""> -->
-                <!-- <img class="btn" src="../img/home/btn2.png" alt=""> -->
-                <!-- <img class="btn" src="../img/home/btn3.png" alt=""> -->
+                <router-link :to="{ name: 'invoice' }" style="text-decoration: none;"><button
+                        class="btn btn--primary">立即登錄發票</button></router-link>
+                <router-link :to="{ name: 'caution' }" style="text-decoration: none;"><button
+                        class="btn btn--scecondary">活動辦法／注意事項</button></router-link>
+                <router-link to="" style="text-decoration: none;"><button
+                        class="btn btn--scecondary">活動店家資訊</button></router-link>
+                <!-- <button class="btn btn--primary">立即登錄發票</button>
+                        <button class="btn btn--scecondary">活動辦法／注意事項</button>
+                        <button class="btn btn--scecondary">活動店家資訊</button> -->
             </div>
         </div>
 

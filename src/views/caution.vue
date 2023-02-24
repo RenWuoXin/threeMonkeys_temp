@@ -3,7 +3,8 @@ import { reactive, ref } from 'vue';
 import { useRoute, useRouter } from 'vue-router'
 
 import invoice from '../components/invoice.vue';
-import accordionInvoice from '../components/accordionInvoice.vue';
+import activityText from '../components/activityText.vue';
+import noticeText from '../components/noticeText.vue';
 
 const router = useRouter()
 
@@ -11,41 +12,17 @@ const goBack = () => {
     router.go(-1)
 }
 
-const veriForm = reactive({
-    invoiceSerialNumber: '',
-    invoiceDate: '',
-    invoiceRandomNumber: '',
-    verify: () => { }
-});
+
 </script>
 
 <template>
     <invoice>
         <template #activityContent>
-
-
             <div class="carrierPage">
-                <accordionInvoice class="accordion"></accordionInvoice>
-                <form name="form">
-
-                    <input required v-model="veriForm.invoiceSerialNumber" class="fullInput" type="text"
-                        placeholder="請輸入發票序號" maxlength="10">
-                    <input required v-model="veriForm.invoiceDate" class="fullInput" type="date" placeholder="請輸入發票日期">
-                    <input required v-model="veriForm.invoiceDate" class="fullInput" type="tel" placeholder="請輸入發票隨機碼" maxlength="4">
-
-
-                    <img class="line" src="../img/carrier/Line.png" alt="">
-                    <label for="submit">
-                        <button style="letter-spacing: 3px;" class="btn btn--primary">
-                            <img class="btn--icon" src="../assets/img/Arrow_right.png" alt="">
-                            確認送出
-                        </button>
-                    </label>
-                    <!-- <input id="submit" style="display: none;" type="submit" value=""> -->
-
-                    <button @click="goback" class="btn btn--scecondary">回上一頁</button>
-                    <button class="btn btn--scecondary">發票登錄說明</button>
-                </form>
+                <!-- <activityText></activityText> -->
+                <noticeText></noticeText>
+                <router-link :to="{ name: 'home' }" style="text-decoration: none;"><button
+                        class="btn btn--primary">回到主頁</button></router-link>
             </div>
         </template>
     </invoice>
@@ -55,9 +32,6 @@ const veriForm = reactive({
 $width: 375px;
 $color: #3E2A28;
 
-// .accordion{
-//     margin: auto;
-// }
 .carrierPage {
     margin: 5px auto;
     // border: 1px solid green;
@@ -70,11 +44,8 @@ $color: #3E2A28;
 
 }
 
-.accordion {
-    margin: 20px 0;
-}
-
-.fullInput {
+.carrierCode,
+.veriCode {
     margin: 10px 0;
     width: 532px;
     height: 82px;
@@ -149,45 +120,16 @@ input[type=checkbox] {
     padding-right: 20px;
 }
 
+
 .btn--primary {
-    display: block;
-    width: 420px;
-    height: 78px;
-    border: 3px solid #402C2A;
-    /* border-top: 3px solid  #000000; */
-    border-radius: 14px;
-    background-color: #000000;
-    color: #F4D19E;
-    /* text-align: center; */
-    /* text-decoration: none; */
-    font-size: 32px;
-    font-weight: 700;
-    /* margin: auto; */
-    position: relative;
-    cursor: pointer;
-    padding-left: 75px;
-}
-
-.btn--primary:before {
-    content: '';
-    border-top: 3px solid #f4d19e;
-    border-radius: 14px;
-    width: 100%;
-    height: 78px;
-    position: absolute;
-    top: 0;
-    left: 0;
-}
-
-.btn--scecondary {
     display: block;
     width: 420px;
     height: 78px;
     border: 3px solid #402C2A;
     /* border-top: 3px solid  #FFFFFF; */
     border-radius: 14px;
-    background-color: #F4D19E;
-    color: #402C2A;
+    background-color: #000000;
+    color: #F4D19E;
     font-size: 32px;
     font-weight: 700;
     /* margin: auto; */
@@ -195,9 +137,9 @@ input[type=checkbox] {
     cursor: pointer;
 }
 
-.btn--scecondary:before {
+.btn--primary:before {
     content: '';
-    border-top: 3px solid #FFFFFF;
+    border-top: 3px solid #F4D19E;
     border-radius: 14px;
     width: 100%;
     height: 78px;

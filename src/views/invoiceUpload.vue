@@ -1,8 +1,15 @@
 <script setup>
 import { reactive, ref } from 'vue';
+import { useRoute, useRouter } from 'vue-router'
+
 import invoice from '../components/invoice.vue';
 import invoiceNumber from '../components/invoiceNumber.vue';
 
+const router = useRouter()
+
+const goBack = () => {
+    router.go(-1)
+}
 </script>
 
 <template>
@@ -21,10 +28,10 @@ import invoiceNumber from '../components/invoiceNumber.vue';
                         ＊紙本發票上須註明三隻猴子品項名稱與瓶數
 
                         <input id="uploadImg" style="display: none;" type="file" accept="image/jpg,png">
-                    </label>
-                    <p class="text--white">*本安卓活動（Android OS）系統8.0及以上和iPhone（iOS）系統13.0及以上的智慧型手機皆可參加，且LINE版本需為9.14或以上。</p>
+                </label>
+                <p class="text--white">*本安卓活動（Android OS）系統8.0及以上和iPhone（iOS）系統13.0及以上的智慧型手機皆可參加，且LINE版本需為9.14或以上。</p>
 
-                    <img class="line" src="../img/carrier/Line.png" alt="">
+                <img class="line" src="../img/carrier/Line.png" alt="">
 
 
                     <span class="text--brown" style="font-size: 30px;margin-left: 40px;">請輸入發票序號</span>
@@ -35,11 +42,11 @@ import invoiceNumber from '../components/invoiceNumber.vue';
                     <p class="text--white">*請填上「英文兩碼」、「數字八碼」</p>
                     <img class="line" src="../img/carrier/Line.png" alt="">
                     <!-- <label for="submit">
-                        <button style="letter-spacing: 3px;" class="btn btn--primary">
-                            <img class="btn--icon" src="../assets/img/Arrow_right.png" alt="">
-                            確認送出
-                        </button>
-                    </label> -->
+                                <button style="letter-spacing: 3px;" class="btn btn--primary">
+                                    <img class="btn--icon" src="../assets/img/Arrow_right.png" alt="">
+                                    確認送出
+                                </button>
+                            </label> -->
                     <!-- <button class="btn btn--scecondary">回上一頁</button> -->
                     <!-- <button class="btn btn--scecondary">發票登錄說明</button> -->
                     <router-link to="" style="text-decoration: none;">
@@ -50,8 +57,7 @@ import invoiceNumber from '../components/invoiceNumber.vue';
                             </button>
                         </label>
                     </router-link>
-                    <router-link to="" style="text-decoration: none;"><button
-                            class="btn btn--scecondary">回上一頁</button></router-link>
+                    <button @click="goback" class="btn btn--scecondary">回上一頁</button>
                     <router-link to="" style="text-decoration: none;"><button
                             class="btn btn--scecondary">發票登錄說明</button></router-link>
                 </form>
@@ -279,4 +285,5 @@ a {
     position: absolute;
     top: 0;
     left: 0;
-}</style>
+}
+</style>

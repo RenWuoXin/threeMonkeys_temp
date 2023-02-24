@@ -5,28 +5,36 @@ import invoice from '../components/invoice.vue';
 <template>
     <invoice>
         <template #activityContent>
-            <button style="letter-spacing: 15px;" class="btn btn--primary">
-                <img class="btn--icon" src="../img/invoice/Order_fill.svg" alt="">
-                登錄手機載具
-                <!-- <span style="display: block;"></span> -->
-            </button>
-            <button style="letter-spacing: 3px;" class="btn btn--primary">
-                <img class="btn--icon" src="../img/invoice/barcode.svg" alt="">
-                登錄新式紙本發票
-            </button>
-            <button style="letter-spacing: 4px;" class="btn btn--primary">
-                <img class="btn--icon" src="../img/invoice/Camera_fill.svg" alt="">
-                拍照上傳紙本發票
-            </button>
+            <router-link :to="{ name: 'invoice-carrier' }" style="text-decoration: none;"><button
+                    style="letter-spacing: 15px;" class="btn btn--primary">
+                    <img class="btn--icon" src="../img/invoice/Order_fill.svg" alt="">
+                    登錄手機載具
+                    <!-- <span style="display: block;"></span> -->
+                </button></router-link>
+
+            <router-link :to="{ name: 'invoice-login' }" style="text-decoration: none;"><button style="letter-spacing: 3px;"
+                    class="btn btn--primary">
+                    <img class="btn--icon" src="../img/invoice/barcode.svg" alt="">
+                    登錄新式紙本發票
+                </button></router-link>
+
+            <router-link :to="{ name: 'invoice-upload' }" style="text-decoration: none;"><button
+                    style="letter-spacing: 4px;" class="btn btn--primary">
+                    <img class="btn--icon" src="../img/invoice/Camera_fill.svg" alt="">
+                    拍照上傳紙本發票
+                </button></router-link>
+
             <button class="btn btn--scecondary">發票登錄說明</button>
             <button class="btn btn--scecondary">活動辦法／注意事項</button>
+        <router-link :to="{ name: 'home' }" style="text-decoration: none;"><button
+                class="btn btn--scecondary">回到首頁</button></router-link>
+
+        <!-- <button class="btn btn--scecondary">回到首頁</button>
             <button class="btn btn--scecondary">回到首頁</button>
-            <!-- <button class="btn btn--scecondary">回到首頁</button>
-            <button class="btn btn--scecondary">回到首頁</button>
-            <button class="btn btn--scecondary">回到首頁</button>
-            <button class="btn btn--scecondary">回到首頁</button>
-            <button class="btn btn--scecondary">回到首頁</button>
-            <button class="btn btn--scecondary">回到首頁</button> -->
+                            <button class="btn btn--scecondary">回到首頁</button>
+                            <button class="btn btn--scecondary">回到首頁</button>
+                            <button class="btn btn--scecondary">回到首頁</button>
+                            <button class="btn btn--scecondary">回到首頁</button> -->
         </template>
     </invoice>
 </template>

@@ -1,5 +1,6 @@
 <script setup>
 import { reactive } from 'vue';
+
 </script>
 
 <template>
@@ -7,7 +8,8 @@ import { reactive } from 'vue';
         <img class="bgImg" src="../assets/img/bg.png" alt="">
         <img class="title" src="../assets/img/title2.png" alt="">
         <img class="bgRec" src="../assets/img/Rectangle.png" alt="">
-        <img class="logoLeft" src="../assets/img/logoLeft.png" alt="">
+        <router-link :to="{ name: 'home' }" style="text-decoration: none;"><img class="logoLeft" src="../img/home/LOGO1.png"
+                alt=""></router-link>
 
         <img class="waterBottom" src="../assets/img/waterBottom.png" alt="">
         <img class="bottomWarn" src="../assets/img/bottomWarn.png" alt="">
@@ -48,14 +50,14 @@ $width: 612px;
 .contentTop {
     width: 580px;
     height: 30%;
-    border: 3px solid red;
+    // border: 3px solid red;
 }
 
 .contentBottom {
     width: 580px;
     height: 70%;
     overflow-y: scroll;
-    border: 3px solid blue;
+    // border: 3px solid blue;
 
 }
 
